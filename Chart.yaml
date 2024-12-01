@@ -1,0 +1,4 @@
+apiVersion: v2
+name: combined-chart
+description: A Helm chart for the combined services
+version: 0.1.0

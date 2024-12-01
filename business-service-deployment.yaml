@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: business-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: business-service
+  template:
+    metadata:
+      labels:
+        app: business-service
+    spec:
+      containers:
+        - name: business-service
+          image: "{{ .Values.businessService.image.repository }}:{{ .Values.businessService.image.tag }}"
+          ports:
+            - containerPort: 8000
+          env:
+            - name: SECRET_KEY
+              value: "your_very_long_and_secure_secret_key_1234567890"
